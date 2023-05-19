@@ -1,0 +1,18 @@
+#round {
+    height: 600px;
+    justify-content: space-between;
+}
+
+#cpu-players {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+}
+
+#card {
+    width: 50px;
+}
+
+#stake-input {
+    text-align: center;
+}
