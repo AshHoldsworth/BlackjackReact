@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./css/round.css";
+import { Controls } from "./Controls";
 
 export const Round = ({
   roundNumber,
@@ -13,11 +14,13 @@ export const Round = ({
   let player3 = cpuPlayers.player3;
   let player4 = cpuPlayers.player4;
 
-  const handleNewCard = () => {
+  const handleTwist = () => {
     player.cards.push(getCard(1)[0]);
     let score = scoreCalc(player);
     score > 21 ? setRoundScore("BUST") : setRoundScore(score);
   };
+
+  const handleStick = () => {};
 
   const scoreCalc = (p) => {
     let total = 0;
@@ -31,11 +34,10 @@ export const Round = ({
   }, []);
 
   const [stake, setStake] = useState();
-  const handleStake = num => num > player.money ? setStake(player.money) : setStake(num);
+  const handleStake = (num) =>
+    num > player.money ? setStake(player.money) : setStake(num);
 
-  const handleStakeSubmit = () => {
-    
-  }
+  
 
   return (
     <>
@@ -86,22 +88,12 @@ export const Round = ({
           </div>
           <p>Current Score: {roundScore}</p>
         </div>
-
-        <div id="controls">
-          <button type="submit" onClick={() => handleNewCard()}>
-            New Card
-          </button>
-          <p>
-          <input
-            type="number"
-            placeholder="Stake"
-            id="stake-input"
-            value={stake}
-            onChange={(e) => handleStake(e.target.value)}
-          /><button type="submit" onClick={() => handleStakeSubmit()}>
-          Submit
-        </button></p>
-        </div>
+        <Controls
+          handleTwist={handleTwist}
+          handleStick={handleStick}
+          handleStake={handleStake}
+          stake={stake}
+        />
       </div>
     </>
   );
