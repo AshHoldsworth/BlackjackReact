@@ -33,6 +33,9 @@ export const Game = () => {
   let deck = getCardDeck().sort((a, b) => 0.5 - Math.random());
   const getCard = (amount) => {
     let random = Math.floor(Math.random() * deck.length - 1);
+    if (random == (deck.length - 1)) {
+        random = Math.floor(Math.random() * deck.length - 1);
+    }
     let card = deck.splice(random, amount);
     if (card === undefined) {
       random = Math.floor(Math.random() * deck.length - 1);

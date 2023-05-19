@@ -28,16 +28,17 @@ export const Round = ({
     return total;
   };
 
-  const [roundScore, setRoundScore] = useState(null);
+  const [roundScore, setRoundScore] = useState(0);
   useEffect(() => {
     setRoundScore(scoreCalc(player));
   }, []);
 
-  const [stake, setStake] = useState();
-  const handleStake = (num) =>
+  const [stake, setStake] = useState(0);
+  const handleStake = (num) => {
     num > player.money ? setStake(player.money) : setStake(num);
+  }
 
-  
+  console.log(player, player2, player3, player4);
 
   return (
     <>
@@ -78,6 +79,7 @@ export const Round = ({
         <div id="player">
           <p>{player.name}</p>
           <p>Money: £{player.money}</p>
+          <p>Stake: £{Number(stake)}</p>
           <div id="cards">
             {player.cards.map((card) => (
               <img
@@ -93,6 +95,7 @@ export const Round = ({
           handleStick={handleStick}
           handleStake={handleStake}
           stake={stake}
+          money={player.money}
         />
       </div>
     </>
