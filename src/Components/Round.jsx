@@ -38,8 +38,6 @@ export const Round = ({
     num > player.money ? setStake(player.money) : setStake(num);
   }
 
-  console.log(player, player2, player3, player4);
-
   return (
     <>
       <div id="round">

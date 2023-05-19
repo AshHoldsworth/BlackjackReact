@@ -4,21 +4,46 @@ import { LandingPage } from "./LandingPage";
 import { Round } from "./Round";
 
 export const Game = () => {
+
+  const playerNames = [
+    "Tori",
+    "David",
+    "Craig",
+    "Jessica",
+    "Paul",
+    "Florence",
+    "Peter",
+    "Phil",
+    "Tony",
+    "Frank",
+    "Clarissa",
+    "Michelle",
+    "Tanya",
+    "Chloe",
+    "Fred",
+    "Wayne",
+    "Jill",
+    "Billie",
+    "Eric",
+    "Callum",
+    "Fernando"
+  ]
+
   let [cpuPlayers, setCpuPlayers] = useState({
     player2: {
-      name: "Zak",
+      name: playerNames[Math.floor(Math.random() * playerNames.length - 1)],
       money: 100,
       cards: [],
       roundScore: 0,
     },
     player3: {
-      name: "Christian",
+      name: playerNames[Math.floor(Math.random() * playerNames.length - 1)],
       money: 100,
       cards: [],
       roundScore: 0,
     },
     player4: {
-      name: "Narayan",
+      name: playerNames[Math.floor(Math.random() * playerNames.length - 1)],
       money: 100,
       cards: [],
       roundScore: 0,
