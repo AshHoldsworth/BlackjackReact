@@ -6,7 +6,7 @@ export const Dealer = ({ dealer }) => {
       <div id="cards">
         {dealer.cards.map((card, index) => (
           <img
-            src={require("../assets/cards/back.png")}
+            src={require(`../assets/cards/${card.name}.png`)}
             className="card"
             id={card.name}
             key={index}
