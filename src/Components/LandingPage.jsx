@@ -1,12 +1,18 @@
 import { useState } from "react";
 
-export const LandingPage = ({player, setPlayer, setGameRounds}) => {
+export const LandingPage = ({ allPlayers, setAllPlayers, setGameRounds }) => {
   let [name, setName] = useState();
   let [rounds, setRounds] = useState();
 
+  
   const handleClick = () => {
-      setPlayer({...player, name: name})
-      setGameRounds(rounds)
+    setAllPlayers({ ...allPlayers, player: {
+      name: name,
+      money: 100,
+      cards: [],
+    
+    } });
+    setGameRounds(rounds);
   };
 
   const handleRounds = (num) => {
