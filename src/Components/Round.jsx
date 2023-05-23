@@ -4,13 +4,9 @@ import { Controls } from "./Controls";
 import { CpuPlayer } from "./common/CpuPlayer";
 import { Player } from "./Player";
 import { Dealer } from "./Dealer";
-import { getCardDeck } from "../Functions/getCardDeck"
+import { getCardDeck } from "../Functions/getCardDeck";
 
-export const Round = ({
-  roundNumber,
-  allPlayers,
-  setAllPlayers
-}) => {
+export const Round = ({ roundNumber, allPlayers, setAllPlayers }) => {
   const handleTwist = () => {
     allPlayers.player.cards.push(getCard(1)[0]);
     let score = scoreCalc(allPlayers.player);
@@ -25,9 +21,9 @@ export const Round = ({
           setRoundScore(score);
         }
         if (!containsAce) {
-          setRoundScore("BUST")
+          setRoundScore("BUST");
         }
-      })
+      });
     } else {
       setRoundScore(score);
     }
@@ -48,8 +44,10 @@ export const Round = ({
 
   const [stake, setStake] = useState(0);
   const handleStake = (num) => {
-    num > allPlayers.player.money ? setStake(allPlayers.player.money) : setStake(num);
-  }
+    num > allPlayers.player.money
+      ? setStake(allPlayers.player.money)
+      : setStake(num);
+  };
 
   let deck = getCardDeck().sort((a, b) => 0.5 - Math.random());
   const getCard = (amount) => {
@@ -76,13 +74,19 @@ export const Round = ({
         <div id="dealer">
           <Dealer dealer={allPlayers.dealer} />
         </div>
+        
         <div id="cpu-players">
-            <CpuPlayer player={allPlayers.player2} />
-            <CpuPlayer player={allPlayers.player3} />
+          <CpuPlayer player={allPlayers.player2} />
+          <CpuPlayer player={allPlayers.player3} />
         </div>
 
-        <Player player={allPlayers.player} stake={stake} roundScore={roundScore} />
-        
+        <div id="player">
+          <Player
+            player={allPlayers.player}
+            stake={stake}
+            roundScore={roundScore}
+          />
+        </div>
         <Controls
           handleTwist={handleTwist}
           handleStick={handleStick}

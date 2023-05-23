@@ -1,7 +1,7 @@
 export const Player = ({player, stake, roundScore}) => {
 
     return <>
-        <div id="player">
+        <div className="player">
           <p>{player.name}</p>
           <p>Money: £{player.money}</p>
           <p>Stake: £{Number(stake)}</p>

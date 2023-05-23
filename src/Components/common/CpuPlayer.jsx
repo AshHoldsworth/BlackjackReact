@@ -1,7 +1,7 @@
 export const CpuPlayer = ({ player }) => {
   return (
     <>
-      <div id="player-2">
+      <div className="player">
         <p>{player.name}</p>
         <p>Money: £{player.money}</p>
         <div id="cards">
